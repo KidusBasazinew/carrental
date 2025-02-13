@@ -1,3 +1,4 @@
+import CarCard from "@/components/CarCard";
 import { MaxWidthWrapper } from "@/components/MaxWidthWrapper";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
@@ -29,6 +30,25 @@ const page = () => {
               alt=""
             />
           </div>
+        </div>
+        <div className="flex justify-between items-center py-20">
+          <Image src="/icons/brands/audi.svg" width={70} height={70} alt="" />
+          <Image src="/icons/brands/ford.svg" width={100} height={100} alt="" />
+          <Image src="/icons/brands/bmw.svg" width={70} height={70} alt="" />
+          <Image src="/icons/brands/mazda.svg" width={70} height={70} alt="" />
+          <Image
+            src="/icons/brands/mercedes.svg"
+            width={70}
+            height={70}
+            alt=""
+          />
+          <Image src="/icons/brands/skoda.svg" width={70} height={70} alt="" />
+          <Image src="/icons/brands/vw.svg" width={70} height={70} alt="" />
+        </div>
+        <div className="grid space-x-4 grid-cols-3">
+          <CarCard />
+          <CarCard />
+          <CarCard />
         </div>
       </MaxWidthWrapper>
     </section>
