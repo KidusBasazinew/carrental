@@ -1,4 +1,5 @@
 "use client";
+import AboutCarsCard from "@/components/AboutCarsCard";
 import CarCard from "@/components/CarCard";
 
 import { MaxWidthWrapper } from "@/components/MaxWidthWrapper";
@@ -92,6 +93,56 @@ const Page = () => {
           ) : (
             <p>No car available</p>
           )}
+        </div>
+        <div className="flex flex-col lg:flex-row justify-center items-center gap-12 mx-auto mt-40 max-w-6xl px-6">
+          <div className="w-full lg:w-1/2 flex justify-center">
+            <Image
+              src="/images/about/car01.png"
+              width={500}
+              height={500}
+              alt="about us"
+              className="rounded-lg object-cover"
+            />
+          </div>
+
+          <div className="flex flex-col gap-y-8 w-full lg:w-1/2">
+            <div>
+              <h1 className="text-4xl font-bold text-gray-900 mb-4 leading-tight">
+                Car Services Simplified
+              </h1>
+              <p className="text-md text-gray-600 leading-relaxed">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad hic
+                perspiciatis earum atque suscipit quia deleniti eos tenetur
+                neque, sit et mollitia incidunt vel voluptatum! Sit, cupiditate.
+                Quaerat, sed? Numquam?
+              </p>
+            </div>
+
+            <div className="flex gap-x-10">
+              <AboutCarsCard
+                icon="/icons/carSlider/gas.svg"
+                type="CAR TYPE"
+                number={46}
+              />
+              <AboutCarsCard
+                icon="/icons/carSlider/gas.svg"
+                type="CAR TYPE"
+                number={46}
+              />
+              <AboutCarsCard
+                icon="/icons/carSlider/gas.svg"
+                type="CAR TYPE"
+                number={46}
+              />
+            </div>
+
+            <Button
+              size="lg"
+              className="w-full sm:w-1/2 bg-primary hover:bg-primary-dark text-white"
+            >
+              See All Cars
+            </Button>
+          </div>
         </div>
       </MaxWidthWrapper>
     </section>
