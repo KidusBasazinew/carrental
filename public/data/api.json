@@ -1,0 +1,42 @@
+{
+  "data": {
+    "cars": [
+      {
+        "id": 1,
+        "brand": "Toyota",
+        "model": "Corolla",
+        "year": 2022,
+        "price_per_day": 40,
+        "fuel_type": "Petrol",
+        "transmission": "Automatic",
+        "seats": 5,
+        "availability": true,
+        "image_url": "/images/carSlider/car01.svg"
+      },
+      {
+        "id": 2,
+        "brand": "Honda",
+        "model": "Civic",
+        "year": 2021,
+        "price_per_day": 45,
+        "fuel_type": "Petrol",
+        "transmission": "Manual",
+        "seats": 5,
+        "availability": true,
+        "image_url": "/images/carSlider/car02.svg"
+      },
+      {
+        "id": 3,
+        "brand": "Tesla",
+        "model": "Model 3",
+        "year": 2023,
+        "price_per_day": 70,
+        "fuel_type": "Electric",
+        "transmission": "Automatic",
+        "seats": 5,
+        "availability": false,
+        "image_url": "/images/carSlider/car03.svg"
+      }
+    ]
+  }
+}

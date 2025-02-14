@@ -1,9 +1,36 @@
+"use client";
 import CarCard from "@/components/CarCard";
+
 import { MaxWidthWrapper } from "@/components/MaxWidthWrapper";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
+import { useEffect, useState } from "react";
 
-const page = () => {
+type Car = {
+  id: number;
+  brand: string;
+  model: string;
+  year: number;
+  price_per_day: number;
+  fuel_type: "Petrol" | "Diesel" | "Electric" | "Hybrid";
+  transmission: "Automatic" | "Manual";
+  seats: number;
+  availability: boolean;
+  image_url: string;
+};
+
+const Page = () => {
+  const [cars, setCars] = useState<Car[]>([]);
+
+  const fetchData = async () => {
+    const res = await fetch("/data/api.json").then((res) => res.json());
+    setCars(await res.data.cars);
+  };
+
+  useEffect(() => {
+    fetchData();
+  }, []);
+
   return (
     <section>
       <MaxWidthWrapper>
@@ -31,7 +58,7 @@ const page = () => {
             />
           </div>
         </div>
-        <div className="flex justify-between items-center py-20">
+        <div className="hidden lg:flex justify-between items-center py-20 ">
           <Image src="/icons/brands/audi.svg" width={70} height={70} alt="" />
           <Image src="/icons/brands/ford.svg" width={100} height={100} alt="" />
           <Image src="/icons/brands/bmw.svg" width={70} height={70} alt="" />
@@ -45,14 +72,30 @@ const page = () => {
           <Image src="/icons/brands/skoda.svg" width={70} height={70} alt="" />
           <Image src="/icons/brands/vw.svg" width={70} height={70} alt="" />
         </div>
-        <div className="grid space-x-4 grid-cols-3">
-          <CarCard />
-          <CarCard />
-          <CarCard />
+        <div className="grid gap-x-4 gap-y-10 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+          {cars.length > 0 ? (
+            cars.map((car) => (
+              <CarCard
+                key={car.id}
+                id={car.id}
+                brand={car.brand}
+                model={car.model}
+                year={car.year}
+                seats={car.seats}
+                price_per_day={car.price_per_day}
+                fuel_type={car.fuel_type}
+                transmission={car.transmission}
+                availability={car.availability}
+                image_url={car.image_url}
+              />
+            ))
+          ) : (
+            <p>No car available</p>
+          )}
         </div>
       </MaxWidthWrapper>
     </section>
   );
 };
 
-export default page;
+export default Page;
