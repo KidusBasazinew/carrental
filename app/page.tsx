@@ -7,6 +7,9 @@ import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 
+import { WHY_US } from "@/constants/whyus";
+import WhyUsCard from "@/components/WhyUsCard";
+
 type Car = {
   id: number;
   brand: string;
@@ -40,7 +43,7 @@ const Page = () => {
   return (
     <section className="relative">
       <div className="flex flex-col lg:flex-row gap-y-10 items-center lg:justify-center lg:mt-16 z-10">
-        <div className="space-y-4 mt-5 mx-10 lg:ml-20">
+        <div className="space-y-4 mt-5 mx-10 lg:ml-20 py-10 lg:py-0">
           <h1 className="text-5xl text-center font-semibold lg:text-start lg:text-6xl font-poppins">
             Find, book and rent a car{" "}
             <span className="text-primary relative">
@@ -77,7 +80,7 @@ const Page = () => {
             </button>
           </div>
         </div>
-        <div className="absolute right-0 -top-16 z-0">
+        <div className="absolute right-0 hidden lg:block lg:-top-16 z-0">
           <Image
             src="/images/hero/background.png"
             width={430}
@@ -146,7 +149,7 @@ const Page = () => {
             <p>No car available</p>
           )}
         </div>
-        <div className="flex flex-col lg:flex-row justify-center items-center gap-12 mx-auto mt-40 max-w-6xl px-6">
+        <div className=" flex flex-col lg:flex-row justify-center items-center gap-12 mx-auto mt-40 max-w-6xl px-6 ">
           <div className="w-full lg:w-1/2 flex justify-center">
             <Image
               src="/images/about/car01.png"
@@ -197,6 +200,63 @@ const Page = () => {
           </div>
         </div>
       </MaxWidthWrapper>
+      <div className="relative flex flex-col md:flex-row gap-8 md:gap-12 lg:gap-16 justify-between items-center mt-20 md:mt-32 lg:mt-40">
+        {/* Main car images */}
+        <div className="relative w-full md:w-1/2 lg:w-[55%] z-50">
+          <Image
+            src="/images/why/car03.svg"
+            width={600}
+            height={600}
+            alt="Why us"
+            className="hidden md:block w-full h-auto object-contain"
+          />
+          <Image
+            src="/images/why/car02.svg"
+            width={600}
+            height={600}
+            alt="Why us"
+            className="block md:hidden w-full h-auto object-contain"
+          />
+        </div>
+
+        {/* Background pattern */}
+        <div className="absolute left-0 -top-16 md:top-10 lg:top-0 w-full max-w-2xl lg:max-w-4xl z-0">
+          <Image
+            src="/images/why/background.png"
+            width={700}
+            height={700}
+            alt=""
+            className="w-2/3  lg:w-4/5  h-auto object-contain z-0"
+          />
+        </div>
+
+        {/* Content section */}
+        <div className="relative z-10 mt-10 w-full md:w-1/2 lg:w-[45%] px-4 sm:px-6 md:px-0">
+          <div className="flex flex-col items-start gap-y-4 md:gap-y-6 w-full">
+            <Button
+              variant="ghost"
+              className="bg-red-100 text-primary md:self-start mx-auto md:mx-0"
+            >
+              WHY CHOOSE US
+            </Button>
+
+            <h1 className="text-3xl md:text-4xl lg:text-5xl font-light py-4 md:py-6">
+              We offer the best experience with our rental deals
+            </h1>
+
+            <div className="flex flex-col gap-y-6 md:gap-y-8 lg:gap-y-10 w-full items-start">
+              {WHY_US.map((why, index) => (
+                <WhyUsCard
+                  key={index}
+                  title={why.title}
+                  description={why.description}
+                  icon={why.icon}
+                />
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
   );
 };
