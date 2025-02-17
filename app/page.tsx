@@ -11,11 +11,16 @@ type Car = {
   id: number;
   brand: string;
   model: string;
+  rating: number;
+  reviews: number;
   year: number;
   price_per_day: number;
   fuel_type: "Petrol" | "Diesel" | "Electric" | "Hybrid";
   transmission: "Automatic" | "Manual";
   seats: number;
+  passengers: number;
+  doors: number;
+  air_conditioning: boolean;
   availability: boolean;
   image_url: string;
 };
@@ -33,32 +38,64 @@ const Page = () => {
   }, []);
 
   return (
-    <section>
-      <MaxWidthWrapper>
-        <div className="flex flex-col lg:flex-row gap-y-10 items-center lg:justify-center lg:mt-16">
-          <div className="space-y-4 mt-5 ">
-            <h1 className="text-5xl text-center font-bold lg:text-start lg:text-6xl">
-              <span className="text-primary">Exploar</span> the Finest Global
-              offer
-            </h1>
-            <p className="text-muted-foreground text-center mx-5 lg:mx-0 lg:text-start lg:text-lg lg:w-4/5">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Repellendus quo velit ipsum amet. Fugit molestias alias provident
-            </p>
-            <div className="flex item-center justify-center space-x-4 lg:justify-start">
-              <Button>See more</Button>
-              <Button variant="secondary">Why us</Button>
-            </div>
-          </div>
-          <div>
-            <Image
-              src="/images/hero/car.svg"
-              width={1000}
-              height={1000}
-              alt=""
-            />
+    <section className="relative">
+      <div className="flex flex-col lg:flex-row gap-y-10 items-center lg:justify-center lg:mt-16 z-10">
+        <div className="space-y-4 mt-5 mx-10 lg:ml-20">
+          <h1 className="text-5xl text-center font-semibold lg:text-start lg:text-6xl font-poppins">
+            Find, book and rent a car{" "}
+            <span className="text-primary relative">
+              Easily{" "}
+              <Image
+                src="/icons/Easily_underline.svg"
+                width={200}
+                height={200}
+                alt=""
+                className="absolute left-0"
+              />
+            </span>
+          </h1>
+          <p className="pt-2 text-sm text-muted-foreground text-center mx-5 lg:mx-0 lg:text-start lg:text-lg lg:w-4/5">
+            Get a car wherever and whenever you need it with your IOS and
+            Android device.
+          </p>
+          <div className="flex item-center justify-center space-x-4 lg:justify-start">
+            <button className="bg-[#111] px-4 py-3 rounded-md">
+              <Image
+                src="/icons/buttons/app-store.svg"
+                width={100}
+                height={50}
+                alt="app store app"
+              />
+            </button>
+            <button className="bg-[#111] px-4 py-3 rounded-md">
+              <Image
+                src="/icons/buttons/google-play.svg"
+                width={100}
+                height={50}
+                alt="google paly app"
+              />
+            </button>
           </div>
         </div>
+        <div className="absolute right-0 -top-16 z-0">
+          <Image
+            src="/images/hero/background.png"
+            width={430}
+            height={430}
+            alt=""
+            className="z-0"
+          />
+        </div>
+        <div className="z-30">
+          <Image
+            src="/images/hero/car2@2x.png"
+            width={1450}
+            height={1450}
+            alt=""
+          />
+        </div>
+      </div>
+      <MaxWidthWrapper>
         <div className="hidden lg:flex justify-between items-center py-20 ">
           <Image src="/icons/brands/audi.svg" width={70} height={70} alt="" />
           <Image src="/icons/brands/ford.svg" width={100} height={100} alt="" />
@@ -73,23 +110,38 @@ const Page = () => {
           <Image src="/icons/brands/skoda.svg" width={70} height={70} alt="" />
           <Image src="/icons/brands/vw.svg" width={70} height={70} alt="" />
         </div>
-        <div className="grid gap-x-4 gap-y-10 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+        <div className="flex flex-col justify-center space-y-4">
+          <Button variant="ghost" className="bg-red-100 text-primary mx-auto">
+            POPULAR RENTAL DEALS
+          </Button>
+          <h1 className="text-4xl font-light text-center">
+            Most popular cars rental deals
+          </h1>
+        </div>
+        <div className="mt-16 grid gap-x-4 gap-y-10 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
           {cars.length > 0 ? (
-            cars.map((car) => (
-              <CarCard
-                key={car.id}
-                id={car.id}
-                brand={car.brand}
-                model={car.model}
-                year={car.year}
-                seats={car.seats}
-                price_per_day={car.price_per_day}
-                fuel_type={car.fuel_type}
-                transmission={car.transmission}
-                availability={car.availability}
-                image_url={car.image_url}
-              />
-            ))
+            cars
+              .slice(0, 3)
+              .map((car) => (
+                <CarCard
+                  key={car.id}
+                  id={car.id}
+                  brand={car.brand}
+                  model={car.model}
+                  reviews={car.reviews}
+                  rating={car.rating}
+                  year={car.year}
+                  seats={car.seats}
+                  price_per_day={car.price_per_day}
+                  fuel_type={car.fuel_type}
+                  transmission={car.transmission}
+                  availability={car.availability}
+                  image_url={car.image_url}
+                  passengers={car.passengers}
+                  doors={car.doors}
+                  air_conditioning={car.air_conditioning}
+                />
+              ))
           ) : (
             <p>No car available</p>
           )}
