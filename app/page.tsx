@@ -9,6 +9,8 @@ import { useEffect, useState } from "react";
 
 import { WHY_US } from "@/constants/whyus";
 import WhyUsCard from "@/components/WhyUsCard";
+import { BOOKING_STEPS } from "@/constants/bookingsteps";
+import HowItWorkCard from "@/components/HowItWorkCard";
 
 type Car = {
   id: number;
@@ -98,6 +100,27 @@ const Page = () => {
           />
         </div>
       </div>
+      <MaxWidthWrapper>
+        <div className="flex flex-col justify-center items-center py-10">
+          <Button variant="ghost" className="bg-red-100 text-primary">
+            HOW IT WORK
+          </Button>
+
+          <h1 className="text-3xl md:text-4xl lg:text-5xl font-light py-4 md:py-6 text-center">
+            Rent with following 3 working steps
+          </h1>
+          <div className="flex md:flex-row gap-x-8 items-center mt-10 flex-col gap-y-8">
+            {BOOKING_STEPS.map((step, index) => (
+              <HowItWorkCard
+                key={index}
+                title={step.title}
+                description={step.description}
+                icon={step.icon}
+              />
+            ))}
+          </div>
+        </div>
+      </MaxWidthWrapper>
       <MaxWidthWrapper>
         <div className="hidden lg:flex justify-between items-center py-20 ">
           <Image src="/icons/brands/audi.svg" width={70} height={70} alt="" />
