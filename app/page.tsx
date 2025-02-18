@@ -11,24 +11,9 @@ import { WHY_US } from "@/constants/whyus";
 import WhyUsCard from "@/components/WhyUsCard";
 import { BOOKING_STEPS } from "@/constants/bookingsteps";
 import HowItWorkCard from "@/components/HowItWorkCard";
-
-type Car = {
-  id: number;
-  brand: string;
-  model: string;
-  rating: number;
-  reviews: number;
-  year: number;
-  price_per_day: number;
-  fuel_type: "Petrol" | "Diesel" | "Electric" | "Hybrid";
-  transmission: "Automatic" | "Manual";
-  seats: number;
-  passengers: number;
-  doors: number;
-  air_conditioning: boolean;
-  availability: boolean;
-  image_url: string;
-};
+import { Car } from "@/types/car";
+import { ShinyButton } from "@/components/ShinyButton";
+import { Star } from "lucide-react";
 
 const Page = () => {
   const [cars, setCars] = useState<Car[]>([]);
@@ -172,13 +157,13 @@ const Page = () => {
             <p>No car available</p>
           )}
         </div>
-        <div className=" flex flex-col lg:flex-row justify-center items-center gap-12 mx-auto mt-40 max-w-6xl px-6 ">
+        <div className="flex flex-col lg:flex-row justify-center items-center gap-12 mx-auto mt-40 max-w-6xl px-6">
           <div className="w-full lg:w-1/2 flex justify-center">
             <Image
               src="/images/about/car01.png"
               width={500}
               height={500}
-              alt="about us"
+              alt="Premium Car Rentals"
               className="rounded-lg object-cover"
             />
           </div>
@@ -186,40 +171,41 @@ const Page = () => {
           <div className="flex flex-col gap-y-8 w-full lg:w-1/2">
             <div>
               <h1 className="text-4xl font-bold text-gray-900 mb-4 leading-tight">
-                Car Services Simplified
+                Drive Your Dream Car Today!
               </h1>
               <p className="text-md text-gray-600 leading-relaxed">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad hic
-                perspiciatis earum atque suscipit quia deleniti eos tenetur
-                neque, sit et mollitia incidunt vel voluptatum! Sit, cupiditate.
-                Quaerat, sed? Numquam?
+                Experience top-tier car rentals with luxury, comfort, and
+                affordability all in one place. Whether you need a car for
+                business, travel, or special occasions, we have the perfect ride
+                for you. Book hassle-free and enjoy an unforgettable driving
+                experience.
               </p>
             </div>
 
             <div className="flex gap-x-10">
               <AboutCarsCard
-                icon="/icons/carSlider/gas.svg"
-                type="CAR TYPE"
-                number={46}
+                icon="/icons/carSlider/sedan.svg"
+                type="Sedans"
+                number={24}
               />
               <AboutCarsCard
-                icon="/icons/carSlider/gas.svg"
-                type="CAR TYPE"
-                number={46}
+                icon="/icons/carSlider/suv.svg"
+                type="SUVs"
+                number={18}
               />
               <AboutCarsCard
-                icon="/icons/carSlider/gas.svg"
-                type="CAR TYPE"
-                number={46}
+                icon="/icons/carSlider/luxury.svg"
+                type="Luxury Cars"
+                number={12}
               />
             </div>
 
-            <Button
-              size="lg"
-              className="w-full sm:w-1/2 bg-primary hover:bg-primary-dark text-white"
+            <ShinyButton
+              href="/book-now"
+              className="relative z-10 h-14 w-full max-w-xs text-base shadow-lg transition-shadow duration-300 hover:shadow-xl"
             >
-              See All Cars
-            </Button>
+              Browse Our Fleet
+            </ShinyButton>
           </div>
         </div>
       </MaxWidthWrapper>
@@ -280,6 +266,95 @@ const Page = () => {
           </div>
         </div>
       </div>
+      <section className="relative py-24 sm:py-32 bg-white">
+        <MaxWidthWrapper className="flex flex-col items-center gap-16 sm:gap-20">
+          {/* Section Header */}
+          <div className="text-center">
+            <h2 className="text-base font-semibold text-primary">
+              Trusted by Customers
+            </h2>
+            <h1 className="text-3xl font-bold mt-2">What Our Clients Say</h1>
+          </div>
+
+          {/* Reviews Section */}
+          <div className="mx-auto grid max-w-3xl grid-cols-1 px-4 lg:max-w-6xl lg:grid-cols-2 divide-y lg:divide-y-0 lg:divide-x divide-gray-200">
+            {/* Review 1 */}
+            <div className="flex flex-col gap-4 bg-gray-100 p-6 sm:p-8 lg:p-12 rounded-t-[2rem] lg:rounded-tr-none lg:rounded-l-[2rem]">
+              {/* Star Ratings */}
+              <div className="flex gap-1 justify-center lg:justify-start">
+                <Star className="size-5 text-yellow-500 fill-yellow-500" />
+                <Star className="size-5 text-yellow-500 fill-yellow-500" />
+                <Star className="size-5 text-yellow-500 fill-yellow-500" />
+                <Star className="size-5 text-yellow-500 fill-yellow-500" />
+                <Star className="size-5 text-yellow-500 fill-yellow-500" />
+              </div>
+
+              {/* Review Text */}
+              <p className="text-lg font-medium text-center lg:text-left">
+                &quot;Rented a car for my vacation, and the experience was
+                seamless! The car was clean, comfortable, and pickup was super
+                easy.&quot;
+              </p>
+
+              {/* Reviewer Details */}
+              <div className="flex flex-col sm:flex-row items-center sm:items-start gap-4 mt-2">
+                <Image
+                  src="/user-1.png"
+                  className="rounded-full object-cover"
+                  alt="Customer"
+                  width={48}
+                  height={48}
+                />
+                <div className="text-center sm:text-left">
+                  <p className="font-semibold">Emily Carter</p>
+                  <p className="text-sm text-gray-600">@emily_rides</p>
+                </div>
+              </div>
+            </div>
+
+            {/* Review 2 */}
+            <div className="flex flex-col gap-4 bg-gray-100 p-6 sm:p-8 lg:p-12 rounded-b-[2rem] lg:rounded-bl-none lg:rounded-r-[2rem]">
+              {/* Star Ratings */}
+              <div className="flex gap-1 justify-center lg:justify-start">
+                <Star className="size-5 text-yellow-500 fill-yellow-500" />
+                <Star className="size-5 text-yellow-500 fill-yellow-500" />
+                <Star className="size-5 text-yellow-500 fill-yellow-500" />
+                <Star className="size-5 text-yellow-500 fill-yellow-500" />
+                <Star className="size-5 text-yellow-500 fill-yellow-500" />
+              </div>
+
+              {/* Review Text */}
+              <p className="text-lg font-medium text-center lg:text-left">
+                &quot;Booking was fast and simple! The car was fuel-efficient
+                and perfect for my road trip. Highly recommended!&quot;
+              </p>
+
+              {/* Reviewer Details */}
+              <div className="flex flex-col sm:flex-row items-center sm:items-start gap-4 mt-2">
+                <Image
+                  src="/user-2.png"
+                  className="rounded-full object-cover"
+                  alt="Customer"
+                  width={48}
+                  height={48}
+                />
+                <div className="text-center sm:text-left">
+                  <p className="font-semibold">Michael Reed</p>
+                  <p className="text-sm text-gray-600">@mike_travels</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* CTA Button */}
+          <ShinyButton
+            href="/cars"
+            className="relative z-10 h-14 w-full max-w-xs text-base shadow-lg transition-shadow duration-300 hover:shadow-xl"
+          >
+            Book Your Ride Today
+          </ShinyButton>
+        </MaxWidthWrapper>
+      </section>
     </section>
   );
 };

@@ -29,14 +29,14 @@ const Navbar = () => {
             <ul className="flex gap-x-6 items-center">
               {LINKS.map((link, index) => (
                 <li key={index}>
-                  <a
+                  <Link
                     href={link.url} // Fixed href
                     className={`text-sm text-foreground ${
                       currentPath === link.url && "text-primary font-semibold"
                     }`}
                   >
                     {link.label}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>

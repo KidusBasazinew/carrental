@@ -13,22 +13,29 @@
         "transmission": "Automatic",
         "air_conditioning": true,
         "doors": 4,
-        "image_url": "/images/carSlider/car01.svg"
+        "image_url": "/images/carSlider/car01.svg",
+        "year": 2022,
+        "fuel_type": "Petrol",
+        "seats": 4
       },
       {
         "id": 2,
-        "brand": "Audi",
-        "model": "R8",
-        "price_per_day": 2100,
-        "availability": false,
-        "rating": 4.6,
-        "reviews": 1936,
-        "passengers": 2,
-        "transmission": "Automatic",
+        "brand": "Dodge",
+        "model": "Charger R/T",
+        "price_per_day": 2500,
+        "availability": true,
+        "rating": 4.8,
+        "reviews": 1800,
+        "passengers": 4,
+        "transmission": "Manual",
         "air_conditioning": true,
         "doors": 2,
-        "image_url": "/images/carSlider/car02.svg"
+        "image_url": "/images/carSlider/car01.png",
+        "year": 1970,
+        "fuel_type": "Petrol",
+        "seats": 4
       },
+
       {
         "id": 3,
         "brand": "BMW",
@@ -41,7 +48,10 @@
         "transmission": "Automatic",
         "air_conditioning": true,
         "doors": 4,
-        "image_url": "/images/carSlider/car03.svg"
+        "image_url": "/images/carSlider/car03.svg",
+        "year": 2021,
+        "fuel_type": "Petrol",
+        "seats": 4
       },
       {
         "id": 4,
@@ -55,7 +65,45 @@
         "transmission": "Automatic",
         "air_conditioning": true,
         "doors": 2,
-        "image_url": "/images/carSlider/car04.svg"
+        "image_url": "/images/carSlider/car03.png",
+        "year": 2023,
+        "fuel_type": "Petrol",
+        "seats": 2
+      },
+      {
+        "id": 5,
+        "brand": "Bugatti",
+        "model": "Veyron",
+        "price_per_day": 5000,
+        "availability": true,
+        "rating": 4.9,
+        "reviews": 1500,
+        "passengers": 2,
+        "transmission": "Automatic",
+        "air_conditioning": true,
+        "doors": 2,
+        "image_url": "/images/carSlider/car04.png",
+        "year": 2015,
+        "fuel_type": "Petrol",
+        "seats": 2
+      },
+
+      {
+        "id": 9,
+        "brand": "Audi",
+        "model": "R8",
+        "price_per_day": 2100,
+        "availability": false,
+        "rating": 4.6,
+        "reviews": 1936,
+        "passengers": 2,
+        "transmission": "Automatic",
+        "air_conditioning": true,
+        "doors": 2,
+        "image_url": "/images/carSlider/car02.png",
+        "year": 2023,
+        "fuel_type": "Petrol",
+        "seats": 2
       }
     ]
   }

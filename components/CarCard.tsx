@@ -57,11 +57,10 @@ const CarCard = ({
       </div>
 
       {/* Car Image */}
-      <div className="relative w-full h-40">
+      <div className="relative w-full h-40 flex justify-center">
         <Image
           src={image_url}
           alt={`${brand} ${model}`}
-          // layout="fill"
           objectFit="cover"
           className="rounded-lg"
           width={300}
