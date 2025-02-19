@@ -12,6 +12,7 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
+import Link from "next/link";
 
 const Page = () => {
   const [cars, setCars] = useState<Car[]>([]);
@@ -124,13 +125,15 @@ const Page = () => {
                   </TableRow>
                 </TableBody>
               </Table>
-              <Button
-                disabled={!selectedCar.availability}
-                size="lg"
-                className="w-full mt-2"
-              >
-                Book Now
-              </Button>
+              <Link href={`/cars/${selectedCar.id}`}>
+                <Button
+                  disabled={!selectedCar.availability}
+                  size="lg"
+                  className="w-full mt-2"
+                >
+                  Book Now
+                </Button>
+              </Link>
             </div>
           </>
         ) : (
